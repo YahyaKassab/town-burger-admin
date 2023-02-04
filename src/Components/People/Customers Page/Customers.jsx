@@ -9,6 +9,7 @@ import {
 } from "@mui/material"
 import React, { Fragment, useState } from "react"
 import { useNavigate } from "react-router"
+import { Link } from "react-router-dom"
 import { LabelList } from "recharts"
 import Page from "../../Page"
 export default function Customers() {
@@ -218,7 +219,7 @@ export default function Customers() {
               <Divider variant="inset" component="li" />
               <ListItem alignItems="flex-start" className="ml-12 my-10">
                 <Grid container spacing={3}>
-                  <Grid item xs={12} lg={4}>
+                  <Grid item xs={12} md={6} xl={3}>
                     <Grid item xs={12}>
                       <Typography variant="h6">{customer.name}</Typography>
                     </Grid>
@@ -229,7 +230,7 @@ export default function Customers() {
                       <Typography variant="h6">{customer.phone}</Typography>
                     </Grid>
                   </Grid>
-                  <Grid item xs={12} lg={4}>
+                  <Grid item xs={12} md={6} xl={3}>
                     <label htmlFor="password">Password</label>
                     <Button
                       className="ml-2"
@@ -249,13 +250,31 @@ export default function Customers() {
                       autoComplete="current-password"
                     />
                   </Grid>
-                  <Grid item xs={12} lg={4} className="mt-12 text-center">
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    xl={3}
+                    className="mt-12 text-center"
+                  >
                     <Button variant="contained" className="mx-2">
                       edit
                     </Button>
                     <Button variant="contained" className="mx-2 bg-red-800">
                       Delete
                     </Button>
+                  </Grid>
+                  <Grid
+                    item
+                    xs={12}
+                    md={6}
+                    xl={3}
+                    className="mt-12 text-center"
+                  >
+                    Has {customer.orders.length}{" "}
+                    <Link to="/" className="text-black font-bold">
+                      Orders
+                    </Link>
                   </Grid>
                 </Grid>
               </ListItem>
