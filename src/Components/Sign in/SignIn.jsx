@@ -9,10 +9,13 @@ import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 import { useNavigate } from "react-router"
+import DispatchContext from "../../DispatchContext"
+import Page from "../Page"
 
 const theme = createTheme()
 
 export default function SignIn() {
+  const appDispatch = React.useContext(DispatchContext)
   const navigate = useNavigate()
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -21,9 +24,11 @@ export default function SignIn() {
       email: data.get("email"),
       password: data.get("password"),
     })
+    // appDispatch({ type: "login" })
   }
 
   return (
+    // <Page nav={false}>
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xl">
         <CssBaseline />
@@ -35,7 +40,7 @@ export default function SignIn() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, p: 5 }} className="bg-red-800">
+          <Avatar sx={{ m: 1, p: 5, backgroundColor: "#1769aa" }}>
             <LockOutlinedIcon fontSize="large" />
           </Avatar>
           <Typography component="h1" variant="h3">
@@ -43,7 +48,7 @@ export default function SignIn() {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -69,12 +74,14 @@ export default function SignIn() {
             />
 
             <Button
-              type="submit"
+              // type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              className="bg-red-800"
-              onClick={() => navigate("/dashboard")}
+              onClick={() => {
+                appDispatch({ type: "login" })
+                navigate("/dashboard")
+              }}
             >
               Sign In
             </Button>
@@ -82,5 +89,6 @@ export default function SignIn() {
         </Box>
       </Container>
     </ThemeProvider>
+    // </Page>
   )
 }

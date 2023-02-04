@@ -12,6 +12,16 @@ import MenuIcon from "@mui/icons-material/Menu"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import NotificationsIcon from "@mui/icons-material/Notifications"
 import { MainListItems, SecondaryListItems } from "./listItems"
+import Box from "@mui/material/Box"
+import Avatar from "@mui/material/Avatar"
+import Menu from "@mui/material/Menu"
+import MenuItem from "@mui/material/MenuItem"
+import ListItemIcon from "@mui/material/ListItemIcon"
+import Tooltip from "@mui/material/Tooltip"
+import PersonAdd from "@mui/icons-material/PersonAdd"
+import Settings from "@mui/icons-material/Settings"
+import Logout from "@mui/icons-material/Logout"
+import { useNavigate } from "react-router"
 
 const drawerWidth = 240
 
@@ -60,9 +70,18 @@ const Drawer = styled(MuiDrawer, {
 }))
 
 export default function Nav() {
+  const navigate = useNavigate()
   const [open, setOpen] = React.useState(true)
   const toggleDrawer = () => {
     setOpen(!open)
+  }
+  const [anchorEl, setAnchorEl] = React.useState(null)
+  const openProfile = Boolean(anchorEl)
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
   }
 
   return (
@@ -94,11 +113,84 @@ export default function Nav() {
           >
             Dashboard
           </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+          {/* <IconButton color="inherit">
+            <Badge badgeContent={0} color="secondary">
               <NotificationsIcon />
             </Badge>
-          </IconButton>
+          </IconButton> */}
+          <Tooltip title="Account settings">
+            <IconButton
+              onClick={handleClick}
+              size="small"
+              sx={{ ml: 2 }}
+              aria-controls={openProfile ? "account-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={openProfile ? "true" : undefined}
+            >
+              <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+            </IconButton>
+          </Tooltip>
+          <Menu
+            anchorEl={anchorEl}
+            id="account-menu"
+            open={openProfile}
+            onClose={handleClose}
+            onClick={handleClose}
+            PaperProps={{
+              elevation: 0,
+              sx: {
+                overflow: "visible",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: 1.5,
+                "& .MuiAvatar-root": {
+                  width: 32,
+                  height: 32,
+                  ml: -0.5,
+                  mr: 1,
+                },
+                "&:before": {
+                  content: '""',
+                  display: "block",
+                  position: "absolute",
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: "background.paper",
+                  transform: "translateY(-50%) rotate(45deg)",
+                  zIndex: 0,
+                },
+              },
+            }}
+            transformOrigin={{ horizontal: "right", vertical: "top" }}
+            anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+          >
+            <MenuItem onClick={() => navigate("/managers")}>
+              <Avatar /> Profile
+            </MenuItem>
+            {/* <MenuItem onClick={handleClose}>
+              <Avatar /> My account
+            </MenuItem> */}
+            <Divider />
+            <MenuItem onClick={() => navigate("/managers")}>
+              <ListItemIcon>
+                <PersonAdd fontSize="small" />
+              </ListItemIcon>
+              Add another account
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/managers")}>
+              <ListItemIcon>
+                <Settings fontSize="small" />
+              </ListItemIcon>
+              Settings
+            </MenuItem>
+            <MenuItem onClick={() => navigate("/")}>
+              <ListItemIcon>
+                <Logout fontSize="small" />
+              </ListItemIcon>
+              Logout
+            </MenuItem>
+          </Menu>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

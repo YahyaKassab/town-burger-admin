@@ -9,6 +9,7 @@ import Link from "@mui/material/Link"
 import CurrentEmployee from "./CurrentEmployee"
 import LatestReviews from "./LatestReviews"
 import MostFamous from "./MostFamous"
+import Page from "../Page"
 
 function Copyright(props) {
   return (
@@ -35,7 +36,7 @@ function DashboardContent() {
   }
 
   return (
-    <>
+    <Page nav={true}>
       <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={6} lg={7}>
@@ -71,7 +72,7 @@ function DashboardContent() {
         </Grid>
       </Grid>
       <Copyright sx={{ pt: 4 }} />
-    </>
+    </Page>
   )
 }
 

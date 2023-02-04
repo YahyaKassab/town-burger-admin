@@ -1,4 +1,5 @@
 import React from "react"
+import Page from "../../Page"
 export default function Managers() {
-  return <>managers</>
+  return <Page nav={true}>Managers</Page>
 }
