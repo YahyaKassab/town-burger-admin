@@ -1,0 +1,66 @@
+controllers:
+login(identity)
+menu{
+    getAll
+    addItem
+    getById
+    getByType
+    getMostOrdered
+    update
+    delete
+}
+Secondary{
+    //exists in the backend not database
+    getAll
+    update
+    Delete
+}
+reviews{
+    getAll
+    getLatest
+    add
+}
+deposits{
+    getAll 
+    getById
+    edit
+    delete
+    add
+}
+balance
+earnings{
+    getLastDay(3 hours)
+    getLastMonth(5 days)
+    getLastYear(1 month)
+}
+cart{
+    getByNumber
+    edit
+    delete
+}
+orders{
+    getByNumber
+    edit
+    delete
+    add
+}
+addresses{
+    getByNumber
+    edit
+    delete
+    add
+}
+Customers{
+    getAll
+    getById
+    edit
+    delete
+    add
+}
+employees{
+    getAll
+    getById
+    edit
+    delete
+    add
+}
