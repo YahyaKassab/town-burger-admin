@@ -63,6 +63,18 @@ export default function Employees() {
   return (
     <Page nav={true}>
       <List sx={{ width: "80%", marginTop: 10, marginLeft: 3 }}>
+        <Typography
+          variant="h3"
+          className="ml-12 mb-16 font-sans font-bold inline-block"
+        >
+          Employees
+        </Typography>
+        <Button
+          variant="contained"
+          className=" py-3 px-5 font-bold inline-block ml-20 mb-5"
+        >
+          Add Employee
+        </Button>
         {employees.map((employee, index) => {
           return (
             <Fragment key={index}>
@@ -77,6 +89,20 @@ export default function Employees() {
                     <Typography variant="h6">
                       Salary : {employee.salary} EGP
                     </Typography>{" "}
+                  </Grid>
+                  <Grid item xs={12} lg={6} xl={4}>
+                    <Button
+                      variant="contained"
+                      className="mx-2 py-3 px-5 font-bold"
+                    >
+                      edit
+                    </Button>
+                    <Button
+                      variant="contained"
+                      className="mx-2 py-3 px-5 font-bold bg-red-900  "
+                    >
+                      delete
+                    </Button>
                   </Grid>
                 </Grid>
               </ListItem>

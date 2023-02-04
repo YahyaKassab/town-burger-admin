@@ -17,152 +17,182 @@ const Orders = () => {
     {
       image: "SliderImages\\burger1.jpg",
       title: "title1",
-      description: "Description",
+      description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title2",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title3",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title4",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title5",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
   ])
   const cart = [
@@ -170,7 +200,12 @@ const Orders = () => {
       return { meal, qty: 1, description: "description" }
     }),
   ]
-  console.log(cart)
+  const totalPrice = (cart) => {
+    const [total, setTotal] = useState(0)
+    cart.map((meal) => {
+      setTotal((prev) => prev + meal.price)
+    })
+  }
   const orders = [
     {
       cart: cart,
@@ -198,6 +233,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -225,6 +261,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -252,6 +289,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -279,6 +317,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -306,8 +345,10 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
   ]
+  // console.log(cart)
   return (
     <Grid container direction={"column-reverse"} spacing={4}>
       <Grid item xs={12}>

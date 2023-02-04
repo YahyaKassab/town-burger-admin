@@ -45,11 +45,11 @@ export const MainListItems = () => {
         </ListItemIcon>
         <ListItemText primary="Managers" />
       </ListItemButton>
-      <ListItemButton onClick={() => navigate("/reports")}>
+      <ListItemButton onClick={() => navigate("/reviews")}>
         <ListItemIcon>
           <BarChartIcon />
         </ListItemIcon>
-        <ListItemText primary="Reports" />
+        <ListItemText primary="Reviews" />
       </ListItemButton>
     </React.Fragment>
   )

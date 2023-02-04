@@ -17,7 +17,7 @@ import Customers from "./Components/People/Customers Page/Customers"
 import { ThemeProvider } from "@emotion/react"
 import Employees from "./Components/People/Employees Page/Employees"
 import Managers from "./Components/People/Managers Page/Managers"
-import Reports from "./Components/Secondary/Reports Page/Reports"
+import Reviews from "./Components/Secondary/Reviews Page/Reviews"
 import Policies from "./Components/Secondary/Policies Page/Policies"
 import AboutUs from "./Components/Secondary/About Us Page/AboutUs"
 import Menu from "./Components/Menu Page/Menu"
@@ -70,7 +70,7 @@ function App() {
                   <Route path="/customers" element={<Customers />} />
                   <Route path="/employees" element={<Employees />} />
                   <Route path="/managers" element={<Managers />} />
-                  <Route path="/reports" element={<Reports />} />
+                  <Route path="/reviews" element={<Reviews />} />
                   <Route path="/Menu" element={<Menu />} />
                   <Route path="/policies" element={<Policies />} />
                   <Route path="/about-us" element={<AboutUs />} />

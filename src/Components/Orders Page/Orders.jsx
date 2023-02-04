@@ -16,36 +16,72 @@ const Orders = () => {
 
   const [menu, setMenu] = useState([
     {
+      image: "SliderImages\\burger1.jpg",
+      title: "title",
+      description: "descrition",
+      price: 40,
+    },
+    {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger1.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger2.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
     },
     {
       image: "SliderImages\\burger3.jpg",
       title: "title",
       description: "descrition",
+      price: 40,
+    },
+    {
+      image: "SliderImages\\burger1.jpg",
+      title: "title",
+      description: "descrition",
+      price: 40,
+    },
+    {
+      image: "SliderImages\\burger2.jpg",
+      title: "title",
+      description: "descrition",
+      price: 40,
+    },
+    {
+      image: "SliderImages\\burger3.jpg",
+      title: "title",
+      description: "descrition",
+      price: 40,
     },
   ])
   const cart = menu.map((meal, index) => {
     return { meal, qty: index + 1, description: "d" }
   })
 
-  console.log(cart)
+  // console.log(cart)
+  const totalPrice = (cart) => {
+    let total = 0
+    cart.map((meal) => {
+      total += meal.meal.price
+    })
+    return total
+  }
   const orders = [
     {
       cart: cart,
@@ -73,6 +109,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -100,6 +137,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -127,6 +165,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -154,6 +193,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
     {
       cart: cart,
@@ -181,6 +221,7 @@ const Orders = () => {
       dateDelivered: null,
       state: 0,
       address: { street: "street", details: "details" },
+      totalPrice: totalPrice(cart),
     },
   ]
   return (
@@ -286,6 +327,9 @@ const Orders = () => {
                                   </Grid>
                                 </Grid>
                               </Grid>
+                            </Grid>
+                            <Grid item xs={12}>
+                              total price: {order.totalPrice} $
                             </Grid>
                           </Grid>
                           <Grid item lg={2} xs={8}>
