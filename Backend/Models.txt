@@ -1,0 +1,60 @@
+models:
+menuItem{
+    title
+    description
+    image
+    price
+}
+review{
+    rating
+    title
+    description
+}
+spends{
+    where
+    cost 
+    when
+}
+deposit{
+    where
+    cost 
+    when
+}
+balance : double
+earnings : double
+cart{
+    menuItem[]
+    qty
+    description
+    totalPrice
+}
+order{
+    cart
+    datePlaced
+    dateDelivered
+    state
+    address
+}
+address{
+    street:
+    details:
+}
+customer{
+    fullname
+    email
+    phone
+    password
+    cart
+    orders
+    addresses
+    deposits
+}
+employee{
+    name
+    job title
+    salary
+    contract
+    daysOfWord{day:shift}
+    spends
+    deposits
+}

@@ -10,6 +10,8 @@ import CurrentEmployee from "./CurrentEmployee"
 import LatestReviews from "./LatestReviews"
 import MostFamous from "./MostFamous"
 import Page from "../Page"
+import Deposits from "./Deposits"
+import Chart from "./Charts"
 
 function Copyright(props) {
   return (
@@ -39,16 +41,29 @@ function DashboardContent() {
     <Page nav={true}>
       <Grid container spacing={3}>
         {/* Chart */}
-        <Grid item xs={12} md={6} lg={7}>
+        <Grid item xs={12} md={8} lg={9}>
           <Paper
             sx={{
               p: 2,
               display: "flex",
               flexDirection: "column",
-              height: 350,
+              height: 240,
             }}
           >
-            <LatestReviews />
+            <Chart />
+          </Paper>
+        </Grid>
+        {/* Recent Deposits */}
+        <Grid item xs={12} md={4} lg={3}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 240,
+            }}
+          >
+            <Deposits />
           </Paper>
         </Grid>
         {/* Current employee */}
@@ -62,6 +77,19 @@ function DashboardContent() {
             }}
           >
             <CurrentEmployee />{" "}
+          </Paper>
+        </Grid>
+        {/* Reviews */}
+        <Grid item xs={12} md={6} lg={7}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 350,
+            }}
+          >
+            <LatestReviews />
           </Paper>
         </Grid>
         {/* Recent Orders */}
