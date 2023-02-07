@@ -23,13 +23,13 @@ deposit{
 balance : double
 earnings : double
 cart{
-    menuItem[]
+    menuItem[] (one to many)
     qty
     description
     totalPrice
 }
 order{
-    cart
+    cart (one to one)
     datePlaced
     dateDelivered
     state
@@ -45,9 +45,9 @@ customer{
     phone
     password
     cart
-    orders
-    addresses
-    deposits
+    orders (one to many)
+    addresses (one to many)
+    deposits (one to many)
 }
 employee{
     name
@@ -56,5 +56,5 @@ employee{
     contract
     daysOfWord{day:shift}
     spends
-    deposits
+    deposits (one to many)
 }
