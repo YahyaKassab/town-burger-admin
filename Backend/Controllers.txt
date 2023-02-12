@@ -1,25 +1,14 @@
 controllers:
 login(identity)
-menu{
-    getAll
-    addItem
-    getById
-    getByType
-    getMostOrdered
-    update
-    delete
-}
+
+
 Secondary{
     //exists in the backend not database
     getAll
     update
     Delete
 }
-reviews{
-    getAll
-    getLatest
-    add
-}
+
 deposits{
     getAll 
     getById
@@ -27,23 +16,15 @@ deposits{
     delete
     add
 }
-balance
-earnings{
-    getLastDay(3 hours)
-    getLastMonth(5 days)
-    getLastYear(1 month)
-}
-cart{
-    getByNumber
-    edit
-    delete
-}
 orders{
     getByNumber
     edit
     delete
     add
 }
+
+balance
+
 addresses{
     getByNumber
     edit
@@ -63,4 +44,32 @@ employees{
     edit
     delete
     add
+}
+
+Done
+menu{
+    getAll
+    addItem
+    getById
+    getByType
+    getMostOrdered
+    update
+    delete
+}
+
+reviews{
+    getAll
+    getLatest
+    add
+}
+earnings{
+    getLastDay(3 hours)
+    getLastMonth(5 days)
+    getLastYear(1 month)
+}
+
+cart{
+    getByNumber
+    edit
+    delete
 }
