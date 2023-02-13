@@ -2,29 +2,6 @@ controllers:
 login(identity)
 
 
-Secondary{
-    //exists in the backend not database
-    getAll
-    update
-    Delete
-}
-
-deposits{
-    getAll 
-    getById
-    edit
-    delete
-    add
-}
-orders{
-    getByNumber
-    edit
-    delete
-    add
-}
-
-balance
-
 addresses{
     getByNumber
     edit
@@ -46,7 +23,18 @@ employees{
     add
 }
 
+
+
 Done
+
+balance
+deposits{
+    getAll 
+    getById
+    edit
+    delete
+    add
+}
 menu{
     getAll
     addItem
@@ -73,3 +61,18 @@ cart{
     edit
     delete
 }
+Secondary{
+    //exists in the backend not database
+    getAll
+    update
+    Delete
+}
+
+
+orders{
+    getByNumber
+    edit
+    delete
+    add
+}
+
