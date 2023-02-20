@@ -1,5 +1,5 @@
-import * as React from "react"
-import { useTheme } from "@mui/material/styles"
+import * as React from 'react'
+import { useTheme } from '@mui/material/styles'
 import {
   LineChart,
   Line,
@@ -7,24 +7,42 @@ import {
   YAxis,
   Label,
   ResponsiveContainer,
-} from "recharts"
-import { Typography } from "@mui/material"
+} from 'recharts'
+import { Typography } from '@mui/material'
 
 // Generate Sales Data
 function createData(time, amount) {
   return { time, amount }
 }
 
+const getDate = () => {
+  const date = new Date()
+  return `${date.getDate()}/${date.getMonth() + 1}`
+}
+
+const subFromDate = (days) => {
+  const date = new Date()
+  if (date.getDate() > days) {
+    return `${date.getDate() - days}/${date.getMonth() + 1}`
+  } else {
+    const toSub = days - date.getDate()
+    //shift to the last month
+    if (date.getMonth() == 0) {
+      return `${30 - toSub}/${12}`
+    } else {
+      //no shifting
+      return `${30 - toSub}/${date.getMonth()} `
+    }
+  }
+}
+
 const data = [
-  createData("00:00", 0),
-  createData("03:00", 300),
-  createData("06:00", 600),
-  createData("09:00", 800),
-  createData("12:00", 1500),
-  createData("15:00", 2000),
-  createData("18:00", 2400),
-  createData("21:00", 2400),
-  createData("24:00", undefined),
+  createData(getDate(), 0),
+  createData(subFromDate(6), 300),
+  createData(subFromDate(12), 600),
+  createData(subFromDate(18), 800),
+  createData(subFromDate(24), 1500),
+  createData(subFromDate(29), 2000),
 ]
 
 export default function Chart() {
@@ -56,7 +74,7 @@ export default function Chart() {
               angle={270}
               position="left"
               style={{
-                textAnchor: "middle",
+                textAnchor: 'middle',
                 fill: theme.palette.text.primary,
                 ...theme.typography.body1,
               }}

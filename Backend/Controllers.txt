@@ -2,12 +2,27 @@ controllers:
 login(identity)
 
 
+
+
+
+
+Done
+employees{
+    getAll
+    getById
+    edit    
+    delete
+    add
+}
+
 addresses{
     getByNumber
     edit
     delete
     add
 }
+
+
 Customers{
     getAll
     getById
@@ -15,17 +30,6 @@ Customers{
     delete
     add
 }
-employees{
-    getAll
-    getById
-    edit
-    delete
-    add
-}
-
-
-
-Done
 
 balance
 deposits{
