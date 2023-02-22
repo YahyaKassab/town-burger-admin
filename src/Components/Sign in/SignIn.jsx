@@ -29,6 +29,7 @@ export default function SignIn() {
       .post('/user/LoginEmployee', { email, password })
       .then((res) => {
         message.success(res.data.message)
+        console.log(res.data.result)
         appDispatch({ type: 'login', value: res.data.result })
         navigate('/dashboard')
       })

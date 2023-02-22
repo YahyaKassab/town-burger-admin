@@ -10,13 +10,13 @@ import CurrentEmployee from './CurrentEmployee'
 import LatestReviews from './LatestReviews'
 import MostFamous from './MostFamous'
 import Page from '../Page'
-import Deposits from './Deposits'
 import Chart from './Charts'
 import StateContext from '../../StateContext'
 import DispatchContext from '../../DispatchContext'
 import axios from 'axios'
 import MessageContext from '../../MessageContext'
 import LoadingIcon from '../../LoadingIcon'
+import Earnings from './Earnings'
 
 function Copyright(props) {
   return (
@@ -47,22 +47,6 @@ function DashboardContent() {
   }
 
   useEffect(() => {
-    //fetch latest reviews
-    const fetchLatestReviews = async () => {
-      await axios
-        .get('/admin/getLatestReviews')
-        .then((res) => {
-          console.log('latest fetched')
-          console.log(res.data.result)
-          appDispatch({ type: 'fetchLatestReviews', value: res.data.result })
-        })
-        .catch((res) => {
-          console.log('failed')
-          console.log(res)
-        })
-    }
-    fetchLatestReviews()
-
     //fetch most ordered
     const fetchMostOrdered = async () => {
       await axios
@@ -79,23 +63,6 @@ function DashboardContent() {
     }
 
     fetchMostOrdered()
-
-    //fetch monthly depostits
-
-    const fetchMonthlyDeposits = async () => {
-      const response = await axios
-        .get('/admin/getDepositsMonth')
-        .then((res) => {
-          console.log('fetched deposits month')
-          appDispatch({ type: 'fetchMonthlyDeposits', value: res.data })
-          console.log(res.data)
-        })
-        .catch((res) => {
-          console.log('failed')
-          message.error(res.response.data.message)
-        })
-    }
-    fetchMonthlyDeposits()
 
     //fetch balance
     const fetchBalance = async () => {
@@ -130,7 +97,7 @@ function DashboardContent() {
               height: 240,
             }}
           >
-            {appState.monthlyDepositsFetching ? <LoadingIcon /> : <Chart />}
+            {<Chart />}
           </Paper>
         </Grid>
         {/* Recent Deposits */}
@@ -143,7 +110,7 @@ function DashboardContent() {
               height: 240,
             }}
           >
-            {appState.monthlyDepositsFetching ? <LoadingIcon /> : <Deposits />}
+            {<Earnings />}
           </Paper>
         </Grid>
         {/* Current employee */}

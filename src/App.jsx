@@ -35,25 +35,22 @@ const mdTheme = createTheme()
 function App() {
   const navigate = useNavigate()
   const initial = {
-    loggedIn: false,
+    loggedIn: localStorage.getItem('userId'),
     user: {
-      id: 1,
-      fullName: '',
+      id: localStorage.getItem('userId'),
+      fullName: localStorage.getItem('userFullName'),
       salary: 1,
       contractBegins: new Date(2010, 11, 12),
       contractEnds: new Date(2010, 11, 12),
       daysOfWork: 'days',
-      email: 'email',
-      phoneNumber: 'num',
-      token: 'token',
+      email: localStorage.getItem('userEmail'),
+      phoneNumber: localStorage.getItem('userNumber'),
+      token: localStorage.getItem('userToken'),
     },
-    latestReviews: {},
-    latestReviewsFetching: true,
+    latestReviews: [],
     mostOrderedFetching: true,
-    monthlyDepositsFetching: true,
     balanceFetching: true,
     mostOrdered: [],
-    monthlyDeposits: {},
     balance: 1,
   }
   const reducer = (draft, action) => {
@@ -91,12 +88,18 @@ function App() {
       console.log('loggedIn')
       console.log(state.user)
       localStorage.setItem('userId', state.user.id)
+      localStorage.setItem('userEmail', state.user.email)
+      localStorage.setItem('userFullName', state.user.fullName)
+      localStorage.setItem('userNumber', state.user.phoneNumber)
       localStorage.setItem('userToken', state.user.token)
     } else {
       //LoggedOut
       console.log('loggedOut ')
       console.log(state.user)
       localStorage.removeItem('userId')
+      localStorage.removeItem('userEmail')
+      localStorage.removeItem('userFullName')
+      localStorage.removeItem('userNumber')
       localStorage.removeItem('userToken')
     }
   }, [state.loggedIn])
