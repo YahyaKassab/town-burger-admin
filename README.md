@@ -34,9 +34,4 @@ To run the **Town Burger Admin Panel** locally, follow these steps:
 - **Node.js** (v14 or higher)
 - **npm** (or Yarn)
 
-### Installation:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/town-burger-admin.git
-   cd town-burger-admin
