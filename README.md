@@ -18,6 +18,35 @@ Watch the demo of the **Town Burger Admin Panel** here:
 
 [![Admin Panel Demo]](https://youtu.be/eiViLjs3-YU)
 
+## Screenshots
+
+### 🖼 Home Page
+![Home Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e88b875/31.png)
+
+### 🖼 Menu Page
+![Menu Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e9b1f77/36.png)
+
+### 🖼 Track Order Page
+![Track Order Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e8e7f48/32.png)
+
+### 🖼 Users Page
+![Users Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e91d71d/33.png)
+
+### 🖼 Home Page
+![Home Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e88b875/31.png)
+
+### 🖼 Employees Page
+![Employees Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e9471dd/34.png)
+
+### 🖼 Reviews Page
+![Reviews Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e96e5b1/35.png)
+
+### 🖼 Policies Page
+![Policies Page](https://mostaql.hsoubcdn.com/uploads/portfolios/2827086/66b916e98eb65/37.png)
+
+
+
+
 ## Technologies Used
 - **Frontend:** React.js, HTML, CSS
 - **State Management:** Redux (or Context API)
